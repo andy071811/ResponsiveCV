@@ -15,7 +15,7 @@ export const localPositionAndCurrentWeather = async (setWeather, setLocation, se
         const position = await getPosition();
         const { latitude, longitude } = position.coords;
 
-        const getReverseGeoLocation = await fetch(`https://geocode.xyz/${latitude},${longitude}?json=1&auth=${geoLocationAPIKey}`);
+        const getReverseGeoLocation = await fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=en-US&apiKey=${geoLocationAPIKey}`);
         if (!getReverseGeoLocation.ok) throw new Error("There was an issue retrieving the location");
         const geoData = await getReverseGeoLocation.json();
 
@@ -23,7 +23,7 @@ export const localPositionAndCurrentWeather = async (setWeather, setLocation, se
         if (!getWeather.ok) throw new Error("There was a problem fetching the weather data");
 
         const weatherData = await getWeather.json();
-        const currentLocation = geoData.region;
+        const currentLocation = geoData.items[0].address.district;
         const currentWeather = weatherData.current.temperature_2m;
         const weatherUnit = weatherData.current_units.temperature_2m;
 
