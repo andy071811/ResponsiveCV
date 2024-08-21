@@ -23,11 +23,12 @@ const A = styled.a`
     }
 `;
 
-function ProjectLinkCard({ project, key }) {
+function ProjectLinkCard({ project }) {
+
     return (
         <div>
-            <Li key={key}>
-                <A href={project.link}>
+            <Li>
+                <A target="blank" href={project.link}>
                     <DiGit /> {project.title}
                 </A>
             </Li>

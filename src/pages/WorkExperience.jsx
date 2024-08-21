@@ -19,9 +19,9 @@ function WorkExperience() {
     useEffect(() => {
         const getExperience = async () => {
             try {
-                const res = await fetch('http://localhost:8000/workExperience');
+                const res = await fetch('http://127.0.0.1:3000/api/workExperience');
                 const data = await res.json();
-                setExperience(data);
+                setExperience(data.data);
             } catch(err) {
                 console.log(err);
                 setError(err)
@@ -33,7 +33,7 @@ function WorkExperience() {
 
     return (
         <StyledWorkExperience>
-            {!error && experience.map(exp => <WorkExperienceCard key={exp.id} exp={exp} />)}
+            {!error && experience.map(exp => <WorkExperienceCard key={exp._id} exp={exp} />)}
             {error && <Error error={error} />}
         </StyledWorkExperience>
     )

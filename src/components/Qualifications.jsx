@@ -9,9 +9,9 @@ function Qualifications() {
     useEffect(() => {
         const getQualifications = async () => {
             try {
-                const res = await fetch('http://localhost:8000/qualifications');
+                const res = await fetch('http://127.0.0.1:3000/api/qualifications');
                 const data = await res.json();
-                setQualifications(data);
+                setQualifications(data.data);
             } catch(err) {
                 setError(err);
             }            
@@ -20,7 +20,7 @@ function Qualifications() {
         getQualifications();
     }, []);
 
-    const mySkills = qualifications.map(skill => <li key={skill.id}>{skill.name}</li>);
+    const mySkills = qualifications.map(skill => <li key={skill._id}>{skill.name}</li>);
 
     return (
         <div>

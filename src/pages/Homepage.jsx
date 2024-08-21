@@ -113,9 +113,9 @@ function Homepage() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await fetch('http://localhost:8000/aboutMe');
+                const res = await fetch('http://127.0.0.1:3000/api/homepage'); 
                 const data = await res.json();
-                setAboutMe(data);
+                setAboutMe(data.data);
             } catch(err) {
                 setError(err);
             }
@@ -126,7 +126,7 @@ function Homepage() {
 
     const mySkills = aboutMe.map(item => {
         return (
-            <ListOfSkillsCard key={item.id} skills={item.skills} />
+            <ListOfSkillsCard key={item._id} skills={item.skills} />
         )
     });
 
