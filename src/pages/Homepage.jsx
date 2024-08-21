@@ -19,6 +19,10 @@ const StyledHomepage = styled.div`
 const NameDiv = styled.div`
     grid-column: 1 / 1;
     grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     margin: 10px;
     text-align: center;
     letter-spacing: 1px;
@@ -33,15 +37,8 @@ const NameDiv = styled.div`
     }
 `;
 
-const H4 = styled.h4`
-    margin-top: 5px;
-`
-
 const Img = styled.img`
-    height: 45vh;
-    margin-top: 50px;
-    border-radius: 2px;
-    border: 3px solid #7e7c8b;
+    max-width: 40vh;
 
     @media (max-width: 768px) {
         display: none;
@@ -135,7 +132,7 @@ function Homepage() {
         <StyledHomepage>
             <NameDiv>
                 <h2>Andy Johnson</h2>
-                <H4>Aspiring Developer</H4>
+                <h4>Aspiring Developer</h4>
                 <Img src="/IMG_8126.jpg" alt="Photo of Andy" />
             </NameDiv>
             <SkillsList>
