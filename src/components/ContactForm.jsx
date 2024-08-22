@@ -49,7 +49,7 @@ function ContactForm() {
         });
     };
 
-    const handleClick = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.subject || !formData.message) {
             setOpenModal(true);
@@ -62,7 +62,7 @@ function ContactForm() {
             setOpenModal(true);
             setIsLoading(true);
             setModalMessage("Please make sure emails match and try again"); 
-            return 
+            return;
         }
 
         try {
@@ -96,7 +96,7 @@ function ContactForm() {
                 <input type="email"  placeholder="Please confirm your email" name="confirmEmail" value={formData.confirmEmail} onChange={handleChange} disabled={isLoading} />
                 <input type="text"  placeholder="Enquiry subject" name="subject" value={formData.subject} onChange={handleChange} disabled={isLoading} />
                 <TextArea type="text" placeholder="Your enquiry here" name="message" value={formData.message} onChange={handleChange} disabled={isLoading} />
-                <Button handleClick={handleClick} disabled={isLoading}>Submit</Button>
+                <Button handleClick={handleSubmit} disabled={isLoading}>Submit</Button>
             </StyledForm>
         </div>
     )
