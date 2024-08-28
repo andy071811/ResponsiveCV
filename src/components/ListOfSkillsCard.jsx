@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { DiCss3, DiHtml5, DiMongodb, DiNodejsSmall, DiPython, DiReact } from "react-icons/di";
+import { DiCss3, DiDocker, DiHtml5, DiMongodb, DiNodejsSmall, DiPython, DiReact } from "react-icons/di";
 import { SiRedux, SiStyledcomponents } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io";
 import { v4 as uuidv4 } from 'uuid';
 
-const StyledList = styled.li`
+const StyledList = styled.ul`
         line-height: 30px;
         list-style: none;
     `;
@@ -50,8 +50,11 @@ function ListOfSkillsCard({ skills }) {
             case 'MongoDB':
                 icon = <DiMongodb color="#4db33d" />
                 break;
+            case 'Docker':
+                icon = <DiDocker color="#4B8BBE" />
+                break;
             default:
-                icon = 'No data'
+                icon = ''
 
         }
         

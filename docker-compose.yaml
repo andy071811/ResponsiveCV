@@ -1,8 +1,13 @@
 services:
   responsive-cv-frontend:
     build: .
-    container_name: frontend-app_container
+    # networks:
+    #   frontend:
+    #     aliases:
+    #       - cv-frontend
     ports:
       - 8080:8080
-    stdin_open: true
-    tty: true
+
+# networks:
+#   frontend:
+#     driver: bridge
