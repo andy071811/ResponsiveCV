@@ -1,13 +1,13 @@
 services:
   responsive-cv-frontend:
     build: .
-    # networks:
-    #   frontend:
-    #     aliases:
-    #       - cv-frontend
+    networks:
+      cv-network:
+        aliases:
+          - frontend
     ports:
       - 8080:8080
 
-# networks:
-#   frontend:
-#     driver: bridge
+networks:
+  cv-network:
+    name: cv-network
