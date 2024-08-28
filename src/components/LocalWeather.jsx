@@ -12,7 +12,7 @@ const StyledLocalWeather = styled.div`
     width: 100%;
 
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         flex-shrink: 1;
         font-size: small;
         gap: 20px;

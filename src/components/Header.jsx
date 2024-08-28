@@ -12,6 +12,10 @@ const StyledHeader = styled.header`
     justify-content: center; // moves left and right: ;
     padding-left: 15px;
     padding-right: 15px;
+
+    @media (max-width: 425px) {
+        display: none;
+    }
 `;
 
 

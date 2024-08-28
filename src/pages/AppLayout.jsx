@@ -9,6 +9,10 @@ const StyledAppLayout = styled.div`
     grid-template-rows: 7% 1fr;
     height: 100vh;
     background-color: #292826;
+
+    @media (max-width: 425px) {
+        grid-template-rows: 1fr;
+    }
 `;
 
 const StyledMain = styled.main`

@@ -8,8 +8,8 @@ const NavList = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 90vh;
+    justify-content: space-evenly;
+    height: 100%;
 `;
 
 const Li = styled.li`
