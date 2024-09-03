@@ -3,3 +3,10 @@ private.js
 node_modules
 config.env
 notes.txt
+dist
+.eslintrc.cjs
+.gitignore
+docker-compose.yaml
+Dockerfile
+notes.txt
+README.md
