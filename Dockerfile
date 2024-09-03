@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
-WORKDIR /app
+WORKDIR /build
 
 COPY package*.json ./
 
@@ -8,6 +8,10 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+RUN npm run build
 
-CMD [ "npm", "run", "dev" ]
+FROM nginx AS final
+
+COPY --from=build /build/dist /var/app/current
+
+COPY nginx/ /etc/nginx/templates/

@@ -1,4 +1,4 @@
-import { geoLocationAPIKey } from '../data/private'
+// import { geoLocationAPIKey } from '../data/private'
 
 const getPosition = () => {
     return new Promise((resolve, reject) => {
