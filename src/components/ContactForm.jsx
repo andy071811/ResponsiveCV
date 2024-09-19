@@ -19,7 +19,7 @@ const StyledForm = styled.form`
 const TextArea = styled.textarea`
     resize: none;
     height: 50vh;
-    padding: 5px;
+    padding: 2.5px;
 `;
 
 const ModalContainer = styled.div`

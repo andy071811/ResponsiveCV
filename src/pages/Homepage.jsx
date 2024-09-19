@@ -9,6 +9,7 @@ const StyledHomepage = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     color: #292826;
+    height: 100%;
 
     @media (max-width: 768px) {
         grid-template-columns: auto;

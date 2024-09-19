@@ -6,11 +6,11 @@ const StyledSidebar = styled.nav`
     border-right: 2px solid black;
 
     transition: width 1.5s, flex-basis 0.5s;
-    width: 75%;
+    /* width: 75%;
 
     &:hover {
         width: 100%;
-    }
+    } */
 `;
 
 function Sidebar() {

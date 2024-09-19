@@ -1,0 +1,11 @@
+server {
+    listen 80;
+
+    root /var/app/current;
+    index index.html;
+
+    # Serve static files directly
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

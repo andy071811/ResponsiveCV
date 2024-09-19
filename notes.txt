@@ -1,4 +1,0 @@
-separate quals and links - done
-add attachments to contact form
-make experience have show/hide boxes
-axios config file
