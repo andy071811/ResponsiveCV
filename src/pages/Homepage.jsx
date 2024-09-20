@@ -23,14 +23,14 @@ const NameDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 10px;
     text-align: center;
     letter-spacing: 1px;
     background: #6d6b78;
     border-radius: 10px;
     border: 3px solid #070708;
-    padding: 20px 30px;
+    //padding: 20px 30px;
 
     @media (max-width: 768px) {
         grid-column: 1 / span 1;
@@ -39,7 +39,7 @@ const NameDiv = styled.div`
 `;
 
 const Img = styled.img`
-    max-width: 40vh;
+    max-height: 70vh;
 
     @media (max-width: 768px) {
         display: none;
@@ -49,11 +49,11 @@ const Img = styled.img`
 const IntroDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     grid-column: 2 / 3;
     grid-row: 1;
     margin: 10px;
-    padding: 10px;
+    padding: 10px 100px;
     background: #6d6b78;
     border-radius: 10px;
     border: 3px solid #070708;
@@ -68,7 +68,7 @@ const IntroDiv = styled.div`
 const SkillsList = styled.ul`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     grid-column: 3;
     grid-row: 1;
     margin: 10px;
@@ -132,8 +132,6 @@ function Homepage() {
     return (
         <StyledHomepage>
             <NameDiv>
-                <h2>Andy Johnson</h2>
-                <h4>Aspiring Developer</h4>
                 <Img src="/IMG_8126.jpg" alt="Photo of Andy" />
             </NameDiv>
             <SkillsList>
@@ -141,15 +139,15 @@ function Homepage() {
                 {!error && mySkills}
             </SkillsList>
             <IntroDiv>
+                <h2>Andy Johnson</h2>
+                <h4>Aspiring Developer</h4>
+                <br/>
                 <p>Hi and welcome to my responsive CV, across the application you will be able to find out a little bit about my skills and qualifications as well as work experience.
                     You will also be able to find a link to my GitHub where there are projects available to see. Some of which are completely my own work and others have been guided
                     through various courses that I have taken.
                 </p>
                 <p>
                     If you would like to get in touch with me, please fill out the contact form and I will get back to you!
-                </p>
-                <p>
-                    Andy
                 </p>
             </IntroDiv>
             <ExternalLinksDiv>

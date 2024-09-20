@@ -66,6 +66,7 @@ function ListOfSkillsCard({ skills }) {
     return (
         <>
             <h4>Example skills:</h4>
+            <br/>
             <StyledList>{skill}</StyledList>
         </>
     )
