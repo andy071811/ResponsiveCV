@@ -7,7 +7,7 @@ const getPosition = () => {
 };
 
 getPosition().catch(err => {
-    alert(`Error: ${err}. Please allow location services for local weather to load.`);
+    alert(`Error: Please allow location services for local weather to load.`);
 });
 
 export const localPositionAndCurrentWeather = async (setWeather, setLocation, setUnitOfTemp) => {

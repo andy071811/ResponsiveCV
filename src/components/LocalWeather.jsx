@@ -22,17 +22,17 @@ const StyledLocalWeather = styled.div`
 function LocalWeather() {
 
     const dateTime = getDateAndTime();
-    const [weather, setWeather] = useState();
-    const [location, setLocation] = useState();
-    const [unitOfTemp, setUnitOfTemp] = useState();
+    const [weather, setWeather] = useState('');
+    const [location, setLocation] = useState('');
+    const [unitOfTemp, setUnitOfTemp] = useState('');
 
     localPositionAndCurrentWeather(setWeather, setLocation, setUnitOfTemp);
 
     return (
         <StyledLocalWeather>
             <p>{dateTime}</p>
-            <p>{`${location}: ${weather}${unitOfTemp}`}</p>
-            <p>{Number(weather) <= 10 ? '🥶' : Number(weather) <= 21 ? '😃' : '🥵'}</p>
+            {weather && <p>{`${location}: ${weather}${unitOfTemp}`}</p>}
+            {weather ? <p>{Number(weather) <= 10 ? '🥶' : Number(weather) <= 21 ? '😃' : '🥵'}</p> : '📖'}
         </StyledLocalWeather>
     )
 }
