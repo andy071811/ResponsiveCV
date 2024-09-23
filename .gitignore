@@ -28,3 +28,4 @@ private.js
 .vscode
 node_modules
 config.env
+nginx/ssl

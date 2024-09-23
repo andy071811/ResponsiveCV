@@ -1,6 +1,7 @@
 server {
     listen 80;
-    server_name andyjohnsoncv.co.uk www.andyjohnsoncv.co.uk;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
 
     root /var/app/current;
     index index.html;
@@ -8,5 +9,10 @@ server {
     # Serve static files directly
     location / {
         try_files $uri $uri/ /index.html;
+    }
+
+    location /health {
+        access_log on;
+        return 200;
     }
 }
