@@ -26,7 +26,7 @@ function ProjectLinks() {
 
     return (
         <div>
-            {error && <Error />}
+            {error && <Error error={error} />}
             {!error && projectLink}
         </div>
     )

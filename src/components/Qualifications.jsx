@@ -25,7 +25,7 @@ function Qualifications() {
     return (
         <div>
             {!error && mySkills}
-            {error && <Error />}
+            {error && <Error error={error} />}
         </div>
     )
 }

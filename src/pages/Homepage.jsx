@@ -4,6 +4,7 @@ import ListOfSkillsCard from "../components/ListOfSkillsCard";
 import Error from "../components/Error";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const StyledHomepage = styled.div`
     display: grid;
@@ -26,24 +27,17 @@ const NameDiv = styled.div`
     justify-content: center;
     margin: 10px;
     text-align: center;
-    letter-spacing: 1px;
     background: #6d6b78;
     border-radius: 10px;
     border: 3px solid #070708;
-    //padding: 20px 30px;
 
     @media (max-width: 768px) {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
+        display: none;
     }
 `;
 
 const Img = styled.img`
     max-height: 70vh;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
 `;
 
 const IntroDiv = styled.div`
@@ -61,7 +55,8 @@ const IntroDiv = styled.div`
 
     @media (max-width: 768px) {
         grid-column: 1 / span 1;
-        grid-row: 2 / span 1;
+        grid-row: 1 / span 2;
+        padding: 10px;
     }
 `;
 
@@ -111,7 +106,8 @@ function Homepage() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await fetch('http://127.0.0.1:3000/api/homepage'); 
+                console.log(backendUrl)
+                const res = await fetch(`http://localhost:3000/api/homepage`); 
                 const data = await res.json();
                 setAboutMe(data.data);
             } catch(err) {
