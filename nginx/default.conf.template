@@ -1,7 +1,6 @@
 server {
     listen 80;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
-    ssl_ciphers HIGH:!aNULL:!MD5;
+    server_name andyjohnsoncv.co.uk www.andyjohnsoncv.co.uk;
 
     root /var/app/current;
     index index.html;
