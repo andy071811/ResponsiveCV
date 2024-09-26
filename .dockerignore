@@ -1,11 +1,10 @@
 private.js
 .vscode
 node_modules
-config.env
+.env
 dist
 .eslintrc.cjs
 .gitignore
 docker-compose.yaml
 Dockerfile
 README.md
-nginx/ssl

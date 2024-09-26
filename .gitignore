@@ -27,5 +27,5 @@ dist-ssr
 private.js
 .vscode
 node_modules
-config.env
+.env
 nginx/ssl
