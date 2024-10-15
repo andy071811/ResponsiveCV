@@ -54,7 +54,6 @@ function WorkExperienceCard({ exp }) {
 
     const handleClick = () => {
         setIsActive(prev => !prev);
-        console.log(isActive)
     }
 
     return (

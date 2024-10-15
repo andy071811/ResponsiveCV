@@ -1,10 +1,10 @@
+import axios from "axios";
+
 import styled from "styled-components"
 import { useEffect, useState } from "react";
 import ListOfSkillsCard from "../components/ListOfSkillsCard";
 import Error from "../components/Error";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const StyledHomepage = styled.div`
     display: grid;
@@ -97,6 +97,7 @@ const ExternalLinksDiv = styled.div`
     }
 `;
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function Homepage() {
 
@@ -106,12 +107,13 @@ function Homepage() {
     useEffect(() => {
         const getData = async () => {
             try {
-                console.log(backendUrl)
-                const res = await fetch(`http://localhost:3000/api/homepage`); 
+                const res = await fetch('http://localhost:3000/api/homepage'); 
                 const data = await res.json();
+                console.log(res, data)
                 setAboutMe(data.data);
             } catch(err) {
                 setError(err);
+                console.log(err);
             }
         }
 
@@ -136,7 +138,7 @@ function Homepage() {
             </SkillsList>
             <IntroDiv>
                 <h2>Andy Johnson</h2>
-                <h4>Aspiring Developer</h4>
+                <h4>Software Developer</h4>
                 <br/>
                 <p>Hi and welcome to my responsive CV, across the application you will be able to find out a little bit about my skills and qualifications as well as work experience.
                     You will also be able to find a link to my GitHub where there are projects available to see. Some of which are completely my own work and others have been guided

@@ -11,6 +11,7 @@ function Qualifications() {
             try {
                 const res = await fetch('http://127.0.0.1:3000/api/qualifications');
                 const data = await res.json();
+                console.log(res)
                 setQualifications(data.data);
             } catch(err) {
                 setError(err);

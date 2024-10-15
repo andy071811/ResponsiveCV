@@ -83,6 +83,7 @@ function ContactForm() {
         } catch(err) {
             setOpenModal(true);
             setModalMessage(`Error: ${err.message}`);
+            console.log(err);
         }
     };
 

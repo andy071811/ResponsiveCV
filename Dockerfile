@@ -1,9 +1,5 @@
 FROM node:18-alpine AS build
 
-ARG BACKEND_URL
-
-ENV BACKEND_URL=${BACKEND_URL}
-
 WORKDIR /build
 
 COPY package*.json ./
@@ -16,7 +12,13 @@ RUN npm run build
 
 FROM nginx AS final
 
+# ARG VITE_BACKEND_URL=https://backend
+
+# ENV VITE_BACKEND_URL=${VITE_BACKEND_URL}
+
 COPY --from=build /build/dist /var/app/current
+
+RUN update-ca-certificates
 
 COPY nginx/default.conf.template /etc/nginx/templates/
 
