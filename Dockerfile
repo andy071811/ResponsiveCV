@@ -1,5 +1,9 @@
 FROM node:18-alpine AS build
 
+ARG VITE_DOMAIN_NAME=andyjohnsoncv.co.uk
+
+ENV VITE_DOMAIN_NAME=${VITE_DOMAIN_NAME}
+
 WORKDIR /build
 
 COPY package*.json ./
@@ -12,9 +16,9 @@ RUN npm run build
 
 FROM nginx AS final
 
-# ARG VITE_BACKEND_URL=https://backend
+ARG EXPRESS_BACKEND=backend
 
-# ENV VITE_BACKEND_URL=${VITE_BACKEND_URL}
+ENV EXPRESS_BACKEND=${EXPRESS_BACKEND}
 
 COPY --from=build /build/dist /var/app/current
 

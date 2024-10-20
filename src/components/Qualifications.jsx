@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Error from './Error';
+import { getQualifications } from "../../hooks/useFetchData";
 
 function Qualifications() {
 
@@ -7,18 +8,7 @@ function Qualifications() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        const getQualifications = async () => {
-            try {
-                const res = await fetch('http://127.0.0.1:3000/api/qualifications');
-                const data = await res.json();
-                console.log(res)
-                setQualifications(data.data);
-            } catch(err) {
-                setError(err);
-            }            
-        }
-
-        getQualifications();
+        getQualifications(setQualifications, setError);
     }, []);
 
     const mySkills = qualifications.map(skill => <li key={skill._id}>{skill.name}</li>);

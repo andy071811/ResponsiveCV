@@ -30,6 +30,9 @@ const ModalContainer = styled.div`
 
 function ContactForm() {
 
+    const domainName = import.meta.env.VITE_DOMAIN_NAME;
+    const apiEndpoint = `http://${domainName}/api`;
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -67,7 +70,7 @@ function ContactForm() {
 
         try {
             setIsLoading(true);
-            const res = await axios.post('http://127.0.0.1:3000/api/contact', formData);
+            const res = await axios.post(`${apiEndpoint}/contact`, formData);
             if (res) {
                 setOpenModal(true);
                 setModalMessage("Success! Your enquiry has been sent");

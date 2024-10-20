@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Error from './Error'
 import ProjectLinkCard from "./ProjectLinkCard";
+import { getLinks } from "../../hooks/useFetchData";
 
 function ProjectLinks() {
 
@@ -8,18 +9,7 @@ function ProjectLinks() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        const getLinks = async () => {
-            try {
-                const res = await fetch('http://127.0.0.1:3000/api/projectLinks');
-                const data = await res.json();
-                setLinks(data.data);
-            } catch(err) {
-                console.log(err);
-                setError(err)
-            }
-        }
-
-        getLinks();
+        getLinks(setLinks, setError);
     }, []);
 
     const projectLink = links.map(project => <ProjectLinkCard key={project._id} project={project}/>);

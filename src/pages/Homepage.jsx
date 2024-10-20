@@ -1,10 +1,11 @@
 import axios from "axios";
-
 import styled from "styled-components"
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+
 import ListOfSkillsCard from "../components/ListOfSkillsCard";
 import Error from "../components/Error";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { getData } from "../../hooks/useFetchData";
 
 const StyledHomepage = styled.div`
     display: grid;
@@ -97,27 +98,13 @@ const ExternalLinksDiv = styled.div`
     }
 `;
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
 function Homepage() {
 
     const [aboutMe, setAboutMe] = useState([])
     const [error, setError] = useState('');
 
     useEffect(() => {
-        const getData = async () => {
-            try {
-                const res = await fetch('http://localhost:3000/api/homepage'); 
-                const data = await res.json();
-                console.log(res, data)
-                setAboutMe(data.data);
-            } catch(err) {
-                setError(err);
-                console.log(err);
-            }
-        }
-
-        getData();
+        getData(setAboutMe, setError);
     }, []);
 
     const mySkills = aboutMe.map(item => {

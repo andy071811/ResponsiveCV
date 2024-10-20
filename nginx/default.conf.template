@@ -1,3 +1,7 @@
+upstream express {
+    server ${EXPRESS_BACKEND}:3000; # 2 - sending the requests to the backend
+}
+
 server {
     listen 80;
     server_name andyjohnsoncv.co.uk www.andyjohnsoncv.co.uk;
@@ -25,5 +29,12 @@ server {
     location /health {
         access_log on;
         return 200;
+    }
+
+    location /api { # 1 - the browser will request /api and nginx will redirect the request to the backend
+        proxy_pass http://express;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }

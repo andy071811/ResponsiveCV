@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import WorkExperienceCard from "../components/WorkExperienceCard";
 import styled from "styled-components";
 import Error from "../components/Error";
+import { getExperience } from "../../hooks/useFetchData";
 
 const StyledWorkExperience = styled.div`
     display: flex;
@@ -17,18 +18,7 @@ function WorkExperience() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        const getExperience = async () => {
-            try {
-                const res = await fetch('http://127.0.0.1:3000/api/workExperience');
-                const data = await res.json();
-                setExperience(data.data);
-            } catch(err) {
-                console.log(err);
-                setError(err)
-            }            
-        }
-
-        getExperience();
+        getExperience(setExperience, setError);
     }, []);
 
     return (
